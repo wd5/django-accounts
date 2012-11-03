@@ -1,0 +1,12 @@
+{% extends "template.html" %}
+
+{% block content %}
+	<div class="container">
+		<div id="content">
+			
+			<p>You have been logged out.</p>
+			<a href="{% url django.contrib.auth.views.login %}">Login again</a>
+		</div>
+	</div>
+
+{% endblock %}
