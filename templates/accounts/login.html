@@ -1,6 +1,7 @@
 {% extends "template.html" %}
 
 {% load bootstrap %}
+{% load i18n %}
 
 {% block content %}
 	<div class="container">
@@ -8,11 +9,11 @@
 		    {% if form.errors %}
             	<p>Authentication error</p>
             {% endif %}
-			<form action="" method="post">
+			<form action="" method="post" class="form">
 				{{ form|bootstrap }}
 				<div class="form-actions">
 					{% csrf_token %}
-					<input type="submit" value="submit">
+					<input type="submit" value="{% trans 'submit' %}" class="btn">
 				</div>		
 			</form>
 		</div>
