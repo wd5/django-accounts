@@ -1,13 +1,16 @@
 from django.contrib.auth.models import User
 from django.shortcuts import render_to_response, get_object_or_404
 from django.http import HttpResponseRedirect, HttpResponse, Http404
-from . forms import UserCreationForm
+
 from django.contrib.auth.tokens import default_token_generator
 from django.core.urlresolvers import reverse
+
 from django.template import RequestContext
 from django.conf import settings
 from django.utils.http import urlquote, base36_to_int
 from django.contrib.sites.models import Site
+
+from . forms import UserCreationForm
 
 #from django.views.decorators.csrf import csrf_protect
 
@@ -22,7 +25,7 @@ def signup(
     ):
 
     if post_signup_redirect is None:
-        post_signup_redirect = reverse('signup-done')
+        post_signup_redirect = reverse('accounts:signup-done')
     if request.method == "POST":
         form = signup_form( request.POST )
         if form.is_valid():
