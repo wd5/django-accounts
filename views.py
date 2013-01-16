@@ -17,8 +17,8 @@ from . forms import UserCreationForm
 #@csrf_protect
 def signup( 
         request,
-        template_name = 'registration/signup.html',
-        email_template_name = 'registration/signup_email.html',
+        template_name = 'accounts/signup.html',
+        email_template_name = 'accounts/signup_email.html',
         signup_form = UserCreationForm,
         token_generator = default_token_generator,
         post_signup_redirect = None
@@ -42,7 +42,7 @@ def signup(
     return render_to_response( template_name, {'form': form, },
                               context_instance = RequestContext( request ) )
 
-def signup_done( request, template_name = 'registration/signup_done.html' ):
+def signup_done( request, template_name = 'accounts/signup_done.html' ):
     return render_to_response( template_name,
                               context_instance = RequestContext( request ) )
 
@@ -70,5 +70,5 @@ def signup_confirm( request, uidb36 = None, token = None,
         context_instance['validlink'] = False
     return HttpResponseRedirect( post_signup_redirect )
 
-def signup_complete( request, template_name = 'registration/signup_complete.html' ):
+def signup_complete( request, template_name = 'accounts/signup_complete.html' ):
     return render_to_response( template_name, context_instance = RequestContext( request, {'login_url': settings.LOGIN_URL} ) )

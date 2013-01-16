@@ -36,7 +36,7 @@ class UserCreationForm( forms.ModelForm ):
         return email
 
     def save( self, commit = True, domain_override = None,
-             email_template_name = 'registration/signup_email.html',
+             email_template_name = 'accounts/signup_email.html',
              use_https = False, token_generator = default_token_generator ):
 
         user = super( UserCreationForm, self ).save( commit = False )
