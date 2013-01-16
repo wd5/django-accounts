@@ -22,7 +22,7 @@ def signup(
     ):
 
     if post_signup_redirect is None:
-        post_signup_redirect = reverse( 'accounts.views.signup_done' )
+        post_signup_redirect = reverse('signup-done')
     if request.method == "POST":
         form = signup_form( request.POST )
         if form.is_valid():
