@@ -33,8 +33,10 @@ def signup(
             opts['use_https'] = request.is_secure()
             opts['token_generator'] = token_generator
             opts['email_template_name'] = email_template_name
+
             if not Site._meta.installed:
                 opts['domain_override'] = RequestSite( request ).domain
+
             form.save( **opts )
             return HttpResponseRedirect( post_signup_redirect )
     else:
