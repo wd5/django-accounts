@@ -13,6 +13,8 @@ urlpatterns = patterns( '',
         {'template_name': 'accounts/logged_out.html'},
         name='logout'
     ),
+
+    # signup ---------------------------------
     url(
         r'^signup/$',
         'accounts.views.signup',
@@ -33,6 +35,13 @@ urlpatterns = patterns( '',
         'accounts.views.signup_confirm',
         name='signup-confirm',
     ),
+    url(
+        r'^signup/complete/$',
+        'accounts.views.signup_complete',
+        {'template_name': 'accounts/signup_complete.html'},
+        name='signup-complete',
+    ),
+    # end signup ---------------------------------
 
     ( r'^password_change/$', 'django.contrib.auth.views.password_change', {'template_name': 'accounts/password_change_form.html'} ),
     ( r'^password_change/done/$', 'django.contrib.auth.views.password_change_done', {'template_name': 'accounts/password_change_done.html'} ),
@@ -45,5 +54,5 @@ urlpatterns = patterns( '',
 
 
 
-    ( r'^signup/complete/$', 'accounts.views.signup_complete', {'template_name': 'accounts/signup_complete.html'} ),
+
  )

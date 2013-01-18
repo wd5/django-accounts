@@ -55,7 +55,7 @@ def signup_confirm( request, uidb36 = None, token = None,
     assert uidb36 is not None and token is not None  #checked par url
 
     if post_signup_redirect is None:
-        post_signup_redirect = reverse( 'accounts.views.signup_complete' )
+        post_signup_redirect = reverse( 'accounts:signup-complete' )
     try:
         uid_int = base36_to_int( uidb36 )
     except ValueError:
